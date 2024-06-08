@@ -1,1 +1,1 @@
-Exercícios feitos no URI ONLINE JUDGE - beecrowd
+Soluções de exercícios feitos no URI ONLINE JUDGE - beecrowd
