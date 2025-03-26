@@ -1,20 +1,20 @@
-# SUBPROGRAMA
-def calcularOperacao(ope, numMaior):
-    ope[0] = int(ope[0])
-    ope[2] = int(ope[2])
-    if operacao[1] == "+":
-        if (ope[0] + ope[2]) > numMaior:
+# SUBPROGRAM
+def calculateOperation(operation, maxNumber):
+    operation[0] = int(operation[0])
+    operation[2] = int(operation[2])
+    if operation[1] == "+":
+        if (operation[0] + operation[2]) > maxNumber:
             return "OVERFLOW"
         else:
             return "OK"
     else:
-        if (ope[0] * ope[2]) > numMaior:
+        if (operation[0] * operation[2]) > maxNumber:
             return "OVERFLOW"
         else:
             return "OK"
 
 
-# PRINCIPAL
-maiorNumero = int(input())
-operacao = input().split()
-print(calcularOperacao(operacao, maiorNumero))
+# MAIN
+maxNumber = int(input())
+operation = input().split()
+print(calculateOperation(operation, maxNumber))

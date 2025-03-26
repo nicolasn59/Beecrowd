@@ -1,6 +1,6 @@
-# SUBPROGRAMA
-# PROGRAMA PRINCIPAL
-filho, filha = map(int, input().split())
-while filho != 0 or filha != 0:
-    print(filho + filha)
-    filho, filha = map(int, input().split())
+# SUBPROGRAM
+# MAIN PROGRAM
+son, daughter = map(int, input().split())
+while son != 0 or daughter != 0:
+    print(son + daughter)
+    son, daughter = map(int, input().split())

@@ -1,18 +1,18 @@
-def raios_repetidos(registros):
-    conjunto_quadrantes = set()  # CONJUNTO NÃO DEIXA ELEM repetidos
-    for raio in registros:
-        quadrante = f"{raio[0]}_{raio[1]}" # CONCATENANDO OS VALORES EM UMA ÚNICA STRING, O TEMPO DE EXECUÇÃO É REDUZIDO PELA METADE
-        if quadrante in conjunto_quadrantes:
+def repeatedRays(records):
+    quadrantSet = set()  # SET DOES NOT ALLOW DUPLICATE ELEMENTS
+    for ray in records:
+        quadrant = f"{ray[0]}_{ray[1]}" # CONCATENATING VALUES INTO A SINGLE STRING REDUCES EXECUTION TIME BY HALF
+        if quadrant in quadrantSet:
             return 1
-        conjunto_quadrantes.add(quadrante)
+        quadrantSet.add(quadrant)
     return 0
 
 
-registros = []
+records = []
 n = int(input())
 
 for _ in range(n):
     x, y = list(map(int, input().split()))
-    registros.append((x, y))
+    records.append((x, y))
 
-print(raios_repetidos(registros))
+print(repeatedRays(records))

@@ -1,3 +1,3 @@
-nota1 = int(input())
-media = int(input())
-print(f'{media * 2 - nota1}')
+grade1 = int(input())
+average = int(input())
+print(f'{average * 2 - grade1}')

@@ -1,70 +1,70 @@
-# SUBPROGRAMA
-def filtrarDistancia(lisDeAlunos):
-    filtroDeDistancia = list()
-    for _ in range(len(lisDeAlunos)):
-        menorDistancia = lisDeAlunos[0]['distancia']
-        indice = 0
-        for i in range(1, len(lisDeAlunos)):
-            if lisDeAlunos[i]['distancia'] < menorDistancia:
-                menorDistancia = lisDeAlunos[i]['distancia']
-                indice = i
-        filtroDeDistancia += [lisDeAlunos[indice]]
-        lisDeAlunos.pop(indice)
-        if lisDeAlunos == []:
-            return filtroDeDistancia
+# SUBPROGRAM
+def filterDistance(studentList):
+    distanceFilter = list()
+    for _ in range(len(studentList)):
+        minDistance = studentList[0]['distancia']
+        index = 0
+        for i in range(1, len(studentList)):
+            if studentList[i]['distancia'] < minDistance:
+                minDistance = studentList[i]['distancia']
+                index = i
+        distanceFilter += [studentList[index]]
+        studentList.pop(index)
+        if studentList == []:
+            return distanceFilter
 
 
-def filtrarDirecao(filtroDeDistancia):
-    filtroDeDirecao = list()
-    tamanho = len(filtroDeDistancia)
-    for _ in range(tamanho):
-        menorDistancia = filtroDeDistancia[0]['distancia']
-        menorDirecao = filtroDeDistancia[0]['direcao']
-        indice = 0
-        for i in range(len(filtroDeDistancia)):
-            if filtroDeDistancia[i]['direcao'] < menorDirecao and filtroDeDistancia[i]['distancia'] == menorDistancia:
-                menorDirecao = filtroDeDistancia[i]['direcao']
-                indice = i
-        filtroDeDirecao += [filtroDeDistancia[indice]]
-        filtroDeDistancia.pop(indice)
-        if filtroDeDistancia == []:
-            return filtroDeDirecao
+def filterDirection(distanceFilter):
+    directionFilter = list()
+    size = len(distanceFilter)
+    for _ in range(size):
+        minDistance = distanceFilter[0]['distancia']
+        minDirection = distanceFilter[0]['direcao']
+        index = 0
+        for i in range(len(distanceFilter)):
+            if distanceFilter[i]['direcao'] < minDirection and distanceFilter[i]['distancia'] == minDistance:
+                minDirection = distanceFilter[i]['direcao']
+                index = i
+        directionFilter += [distanceFilter[index]]
+        distanceFilter.pop(index)
+        if distanceFilter == []:
+            return directionFilter
 
-def filtrarNome(filtroDeDirecao):
-    filtroDeNome = list()
-    tamanho = len(filtroDeDirecao)
-    for _ in range(tamanho):
-        menorDistancia = filtroDeDirecao[0]['distancia']
-        menorDirecao = filtroDeDirecao[0]['direcao']
-        menorNome = filtroDeDirecao[0]['nome']
-        indice = 0
-        for i in range(len(filtroDeDirecao)):
-            if filtroDeDirecao[i]['nome'] < menorNome and filtroDeDirecao[i]['direcao'] == menorDirecao and filtroDeDirecao[i]['distancia'] == menorDistancia:
-                menorNome = filtroDeDirecao[i]['nome']
-                indice = i
-        filtroDeNome += [filtroDeDirecao[indice]]
-        filtroDeDirecao.pop(indice)
-        if filtroDeDirecao == []:
-            return filtroDeNome
+def filterName(directionFilter):
+    nameFilter = list()
+    size = len(directionFilter)
+    for _ in range(size):
+        minDistance = directionFilter[0]['distancia']
+        minDirection = directionFilter[0]['direcao']
+        minName = directionFilter[0]['nome']
+        index = 0
+        for i in range(len(directionFilter)):
+            if directionFilter[i]['nome'] < minName and directionFilter[i]['direcao'] == minDirection and directionFilter[i]['distancia'] == minDistance:
+                minName = directionFilter[i]['nome']
+                index = i
+        nameFilter += [directionFilter[index]]
+        directionFilter.pop(index)
+        if directionFilter == []:
+            return nameFilter
 
 
-# PROGRAMA PRINCIPAL
-parar = False
-while parar == False:
+# MAIN PROGRAM
+stop = False
+while stop == False:
     try:
-        alunosPresentes = int(input())
-        listaDeAlunos = list()
-        for i in range(alunosPresentes):
-            aluno = dict()
-            aluno['nome'], aluno['direcao'], aluno['distancia'] = input().split()
-            listaDeAlunos.append(aluno)
+        presentStudents = int(input())
+        studentList = list()
+        for i in range(presentStudents):
+            student = dict()
+            student['nome'], student['direcao'], student['distancia'] = input().split()
+            studentList.append(student)
     except EOFError:
-        parar = True
+        stop = True
     else:
-        for i in range(len(listaDeAlunos)):
-            listaDeAlunos[i]['distancia'] = int(listaDeAlunos[i]['distancia'])
-        distanciaFiltrada = filtrarDistancia(listaDeAlunos)
-        direcaoFiltrada = filtrarDirecao(distanciaFiltrada)
-        melhoresRotas = filtrarNome(direcaoFiltrada)
-        for rota in melhoresRotas:
-            print(rota['nome'])
+        for i in range(len(studentList)):
+            studentList[i]['distancia'] = int(studentList[i]['distancia'])
+        distanceFiltered = filterDistance(studentList)
+        directionFiltered = filterDirection(distanceFiltered)
+        bestRoutes = filterName(directionFiltered)
+        for route in bestRoutes:
+            print(route['nome'])

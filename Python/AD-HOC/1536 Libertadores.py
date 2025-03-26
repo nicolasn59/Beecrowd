@@ -1,31 +1,31 @@
-gols_time1 = 0
-gols_time2 = 0
-numero_teste = int(input())
-for _ in range(numero_teste):
+team1Goals = 0
+team2Goals = 0
+numTests = int(input())
+for _ in range(numTests):
 
-    #RODADA DE IDA (TIME 2 VISITANTE)
+    # FIRST LEG (TEAM 2 AWAY)
 
-    placar_time1_mandante, x, placar_time2_visitante = map(str, input().split())
-    gols_time1 += int(placar_time1_mandante)
-    gols_time2 += int(placar_time2_visitante)
+    team1HomeScore, x, team2AwayScore = map(str, input().split())
+    team1Goals += int(team1HomeScore)
+    team2Goals += int(team2AwayScore)
 
-    # RODADA DE VOLTA (TIME 1 VISITANTE)
+    # SECOND LEG (TEAM 1 AWAY)
 
-    placar_time2_mandante, x, placar_time1_visitante = map(str, input().split())
-    gols_time1 += int(placar_time1_visitante)
-    gols_time2 += int(placar_time2_mandante)
+    team2HomeScore, x, team1AwayScore = map(str, input().split())
+    team1Goals += int(team1AwayScore)
+    team2Goals += int(team2HomeScore)
 
-    if gols_time1 > gols_time2:
+    if team1Goals > team2Goals:
         print('Time 1')
-    elif gols_time2 > gols_time1:
+    elif team2Goals > team1Goals:
         print('Time 2')
     else:
-        if placar_time1_visitante > placar_time2_visitante:
+        if team1AwayScore > team2AwayScore:
             print('Time 1')
-        elif placar_time2_visitante > placar_time1_visitante:
+        elif team2AwayScore > team1AwayScore:
             print('Time 2')
         else:
             print('Penaltis')
 
-    gols_time1 = 0
-    gols_time2 = 0
+    team1Goals = 0
+    team2Goals = 0

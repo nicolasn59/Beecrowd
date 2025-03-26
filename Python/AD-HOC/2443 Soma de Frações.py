@@ -1,23 +1,23 @@
-# SUBPROGRAMA
-def mdc(dividendo, divisor):
+# SUBPROGRAM
+def gcd(dividend, divisor):
     if divisor == 0:
-        return dividendo
+        return dividend
     else:
-        return mdc(divisor, dividendo % divisor)
+        return gcd(divisor, dividend % divisor)
 
 
-def simplificar(dividendo, divisor):
-    return (dividendo // mdc(dividendo, divisor)), (divisor // mdc(dividendo, divisor))
+def simplify(dividend, divisor):
+    return (dividend // gcd(dividend, divisor)), (divisor // gcd(dividend, divisor))
 
 
-def somaFracoes(a, b, c, d):
-    a, b = simplificar(a, b)
-    c, d = simplificar(c, d)
+def sumFractions(a, b, c, d):
+    a, b = simplify(a, b)
+    c, d = simplify(c, d)
     x, y = ((a*d) + (b * c)), (b * d)
-    return simplificar(x, y)
+    return simplify(x, y)
 
 
-# PROGRAMA PRINCIPAL
+# MAIN PROGRAM
 A, B, C, D = map(int, input().split())
-X, Y = somaFracoes(A, B, C, D)
+X, Y = sumFractions(A, B, C, D)
 print(X, Y)

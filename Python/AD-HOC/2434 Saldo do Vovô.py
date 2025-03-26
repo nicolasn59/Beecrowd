@@ -1,12 +1,12 @@
-menor = 0
-dias, saldo_inicial = map(int, input().split())
-for _ in range(dias):
-    saldo = int(input())
-    saldo_inicial += saldo
+minBalance = 0
+days, initialBalance = map(int, input().split())
+for _ in range(days):
+    balance = int(input())
+    initialBalance += balance
 
-    if menor == 0:
-        menor = saldo_inicial
+    if minBalance == 0:
+        minBalance = initialBalance
     else:
-        if saldo_inicial < menor:
-            menor = saldo_inicial
-print(menor)
+        if initialBalance < minBalance:
+            minBalance = initialBalance
+print(minBalance)

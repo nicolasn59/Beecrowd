@@ -1,25 +1,25 @@
-frase_decodificada = []
+decoded_phrase = []
 
-teclado = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', "\\",
+keyboard = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', "\\",
 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', "'", 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/']
 
 while True:
     try:
-        frase = str(input()).upper()
+        phrase = str(input()).upper()
 
     except EOFError:
         break
 
     else:
-        lista = [caractere for caractere in frase]
+        char_list = [char for char in phrase]
 
-        for indice, caractere in enumerate(lista):
+        for index, char in enumerate(char_list):
 
-            if caractere in teclado:
-                i = teclado.index(caractere)
-                frase_decodificada.append(teclado[i - 1] if i > 0 else caractere)
+            if char in keyboard:
+                i = keyboard.index(char)
+                decoded_phrase.append(keyboard[i - 1] if i > 0 else char)
             else:
-                frase_decodificada.append(' ')
+                decoded_phrase.append(' ')
 
-        print(''.join(frase_decodificada))
-        frase_decodificada.clear()
+        print(''.join(decoded_phrase))
+        decoded_phrase.clear()

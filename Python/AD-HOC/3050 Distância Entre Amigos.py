@@ -1,17 +1,17 @@
-# SUBPROGRAMA
-def distanciaMaxima(numP, numA):
-    maiorDistancia = numA[0] - 1
-    inicio = 1
-    for i in range(numP):
-        for j in range(inicio, len(numA)):
-            if (((numA[i] + numA[j])-2) + abs(i - j)) > maiorDistancia:
-                maiorDistancia = ((numA[i] + numA[j])) + abs(i - j)
-        inicio += 1
-    print(maiorDistancia)
+# SUBPROGRAM
+def maxDistance(numBuildings, numFloors):
+    maxDistance = numFloors[0] - 1
+    start = 1
+    for i in range(numBuildings):
+        for j in range(start, len(numFloors)):
+            if (((numFloors[i] + numFloors[j])-2) + abs(i - j)) > maxDistance:
+                maxDistance = ((numFloors[i] + numFloors[j])) + abs(i - j)
+        start += 1
+    print(maxDistance)
     return None
 
-# PRINCIPAL
-numeroDePredios = int(input())
-numeroDeAndares = list(map(int, input().split()))
-# numeroDeAndares = [andar + 1 for andar in numeroDeAndares]
-distanciaMaxima(numeroDePredios, numeroDeAndares)
+# MAIN
+numBuildings = int(input())
+numFloors = list(map(int, input().split()))
+# numFloors = [floor + 1 for floor in numFloors]
+maxDistance(numBuildings, numFloors)

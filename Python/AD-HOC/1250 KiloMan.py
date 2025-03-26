@@ -1,24 +1,24 @@
 while True:
     try:
-        numeroDeTestes = int(input())
-        for caso in range(numeroDeTestes):
-            atingido = 0
-            listaDeAcao = []
+        numTests = int(input())
+        for case in range(numTests):
+            hits = 0
+            actionList = []
 
-            numeroDeTiros = int(input())
-            alturaDoTiro = list(map(int, input().split()))
-            acaoDoJogador = input()
+            numShots = int(input())
+            shotHeight = list(map(int, input().split()))
+            playerAction = input()
 
-            listaDeAcao = [caractere for caractere in acaoDoJogador]
+            actionList = [char for char in playerAction]
 
-            for posicao in range(numeroDeTiros):
-                if alturaDoTiro[posicao] <= 2 and acaoDoJogador[posicao] == "S":
-                    atingido += 1
-                elif alturaDoTiro[posicao] > 2 and acaoDoJogador[posicao] == "J":
-                    atingido += 1
+            for position in range(numShots):
+                if shotHeight[position] <= 2 and playerAction[position] == "S":
+                    hits += 1
+                elif shotHeight[position] > 2 and playerAction[position] == "J":
+                    hits += 1
                 else:
                     continue
-            print(atingido)
+            print(hits)
 
     except EOFError:
         break

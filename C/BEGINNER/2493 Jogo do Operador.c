@@ -1,47 +1,47 @@
 #include <stdio.h>
 #include <string.h>
 
-void limparBuffer()
+void clearBuffer()
 {
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 }
 
-void resolverExpressoes(int ind, int num1, int num2, int *somatorio, int *subtratorio, int *produtorio)
+void solveExpressions(int index, int num1, int num2, int *sum, int *subtraction, int *product)
 {
-    somatorio[ind] = (num1 + num2);
-    subtratorio[ind] = (num1 - num2);
-    produtorio[ind] = (num1 * num2);
+    sum[index] = (num1 + num2);
+    subtration[index] = (num1 - num2);
+    product[index] = (num1 * num2);
 }
 
-int anotarPerdedores(char name[], char listaDePerdedores[][51], int pos)
+int noteLosers(char name[], char listOfLosers[][51], int pos)
 {
     int len=0;
     for (int k=0; name[k] != '\0'; k++)
     {
-        listaDePerdedores[pos][k] = name[k];
+        listOfLosers[pos][k] = name[k];
         len += 1;
     }
-    listaDePerdedores[pos][len] = '\0';
+    listOfLosers[pos][len] = '\0';
     pos += 1;
     return pos;
 }
 
-void ordenaStrings(char listaDePerdedores[][51], int pos)
+void sortStrings(char listOfLosers[][51], int pos)
 {
     int r;
-    char auxiliar[51];
-    // DIMINUI -1 DA POSICAO, PORQUE O INDICE COMEÇA EM 0 E A POSICAO É A QUANTIDADE DE PERDEDORES, ENTAO O VALOR DELA É IGUAL A 2
+    char aux[51];
+    // SUBTRACT 1 FROM POSITION, BECAUSE THE INDEX STARTS AT 0 AND THE POSITION IS THE NUMBER OF LOSERS, SO ITS VALUE IS EQUAL TO 2
     for (int i=0; i <= (pos-1); i++)
     {
         for (int j=i+1; j <= (pos-1); j++)
         { 
-            r = (strcmp(listaDePerdedores[i], listaDePerdedores[j]));
+            r = (strcmp(listOfLosers[i], listOfLosers[j]));
             if (r > 0)
             {
-                strcpy(auxiliar, listaDePerdedores[i]);
-                strcpy(listaDePerdedores[i], listaDePerdedores[j]);
-                strcpy(listaDePerdedores[j], auxiliar);
+                strcpy(aux, listOfLosers[i]);
+                strcpy(listOfLosers[i], listOfLosers[j]);
+                strcpy(listOfLosers[j], aux);
             }
         }
     }
@@ -49,82 +49,82 @@ void ordenaStrings(char listaDePerdedores[][51], int pos)
 
 int main()
 {
-   int quantidadeDeExpressoes;
-   while (scanf("%d", &quantidadeDeExpressoes) != EOF)
+   int numberOfExpressions;
+   while (scanf("%d", &numberOfExpressions) != EOF)
    {
-        int numero1, numero2, indice, resultados[quantidadeDeExpressoes], resposta;
-        int soma[quantidadeDeExpressoes], subtracao[quantidadeDeExpressoes], produto[quantidadeDeExpressoes];
-        char igualdade;
-        indice = 0;
-        while (indice < quantidadeDeExpressoes)
+        int num1, num2, index, results[numberOfExpressions], answer;
+        int sum[numberOfExpressions], subtration[numberOfExpressions], product[numberOfExpressions];
+        char equality;
+        index = 0;
+        while (index < numberOfExpressions)
         {
-            scanf("%d %d %c %d", &numero1, &numero2, &igualdade, &resposta);
-            resolverExpressoes(indice, numero1, numero2, soma, subtracao, produto);
-            resultados[indice] = resposta;
-            indice += 1;
+            scanf("%d %d %c %d", &num1, &num2, &equality, &answer);
+            solveExpressions(index, num1, num2, sum, subtration, product);
+            results[index] = answer;
+            index += 1;
         }
 
-        char nome[51], perdedores[51][51], operador;
-        int indiceDoJogador, i=0, acertos=0, erros=0, posicao=0;
-        while (i < quantidadeDeExpressoes)
+        char name[51], losers[51][51], operator;
+        int playerIndex, i=0, correct=0, errors=0, position=0;
+        while (i < numberOfExpressions)
         {
-            scanf("%s %d %c", nome, &indiceDoJogador, &operador);
-            limparBuffer();
-            if (operador == '+')
+            scanf("%s %d %c", name, &playerIndex, &operator);
+            clearBuffer();
+            if (operator == '+')
             {
-                if ((soma[indiceDoJogador-1]) == resultados[indiceDoJogador-1])
-                    acertos += 1;
+                if ((sum[playerIndex-1]) == results[playerIndex-1])
+                    correct += 1;
                 else
                 {
-                    erros += 1;
-                    posicao = anotarPerdedores(nome, perdedores, posicao);
+                    errors += 1;
+                    position = noteLosers(name, losers, position);
                 }
             }
-            else if (operador == '-')
+            else if (operator == '-')
             {
-                if ((subtracao[indiceDoJogador-1] == resultados[indiceDoJogador-1]))
-                    acertos += 1;
+                if ((subtration[playerIndex-1] == results[playerIndex-1]))
+                    correct += 1;
                 else
                 {
-                    erros += 1;
-                    posicao = anotarPerdedores(nome, perdedores, posicao);
+                    errors += 1;
+                    position = noteLosers(name, losers, position);
                 }
             }
-            else if (operador == '*')
+            else if (operator == '*')
             {
-                if ((produto[indiceDoJogador-1]) == resultados[indiceDoJogador-1])
-                    acertos += 1;
+                if ((product[playerIndex-1]) == results[playerIndex-1])
+                    correct += 1;
                 else
                 {
-                    erros += 1;
-                    posicao = anotarPerdedores(nome, perdedores, posicao);
+                    errors += 1;
+                    position = noteLosers(name, losers, position);
                 }
             }
-            else if (operador == 'I')
+            else if (operator == 'I')
             {
-                if ((soma[indiceDoJogador-1] != resultados[indiceDoJogador-1]) && (subtracao[indiceDoJogador-1] != resultados[indiceDoJogador-1]) && (produto[indiceDoJogador-1] != resultados[indiceDoJogador-1]))
-                    acertos += 1;
+                if ((sum[playerIndex-1] != results[playerIndex-1]) && (subtration[playerIndex-1] != results[playerIndex-1]) && (product[playerIndex-1] != results[playerIndex-1]))
+                    correct += 1;
                 else
                 {
-                    erros += 1;
-                    posicao = anotarPerdedores(nome, perdedores, posicao);
+                    errors += 1;
+                    position = noteLosers(name, losers, position);
                 }
             }
             i += 1;
         }
-        if (acertos == quantidadeDeExpressoes)
+        if (correct == numberOfExpressions)
             printf("You Shall All Pass!\n");
-        else if (erros == quantidadeDeExpressoes)
+        else if (errors == numberOfExpressions)
             printf("None Shall Pass!\n");
         else
         {
-            ordenaStrings(perdedores, posicao);
-            for (int i=0; i < posicao; i++)
+            sortStrings(losers, position);
+            for (int i=0; i < position; i++)
             {
-                if (i != (posicao-1))
-                    printf("%s ", perdedores[i]);
+                if (i != (position-1))
+                    printf("%s ", losers[i]);
                 else
-                    printf("%s\n", perdedores[i]);
+                    printf("%s\n", losers[i]);
             }
         }
    }

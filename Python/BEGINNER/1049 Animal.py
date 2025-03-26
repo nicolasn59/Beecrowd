@@ -1,3 +1,5 @@
+# op = option
+
 op1 = input()
 op2 = input()
 op3 = input()

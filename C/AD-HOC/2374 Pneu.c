@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 int main() {
-    int pressaoDigitada, pressaoDoPneu;
-    scanf("%d %d", &pressaoDigitada, &pressaoDoPneu);
-    printf("%d\n", (pressaoDigitada - pressaoDoPneu));
+    int desiredPressure, tirePressure;
+    scanf("%d %d", &desiredPressure, &tirePressure);
+    printf("%d\n", (desiredPressure - tirePressure));
     return 0;
 }

@@ -1,11 +1,11 @@
-#SUBPROGRAMA
-def melhorCarta(ca1, ca2):
-    if ca1 > ca2:
-        return ca1
+# SUBPROGRAM
+def bestCard(card1, card2):
+    if card1 > card2:
+        return card1
     else:
-        return ca2
+        return card2
 
-# PRINCIPAL
-carta1, carta2 = map(int, input().split())
-cartaDaVitoria = melhorCarta(carta1, carta2)
-print(cartaDaVitoria)
+# MAIN
+card1, card2 = map(int, input().split())
+winningCard = bestCard(card1, card2)
+print(winningCard)

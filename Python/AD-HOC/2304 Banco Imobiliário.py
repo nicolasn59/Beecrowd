@@ -1,6 +1,6 @@
-dinheiro, turnos = map(int, input().split())
-D = E = F = dinheiro
-for elon_musk in range(turnos):
+money, turns = map(int, input().split())
+D = E = F = money
+for elon_musk in range(turns):
     capital = list(map(str, input().split()))
     capital[-1] = int(capital[-1])
 

@@ -2,14 +2,14 @@
 
 int main()
 {
-    int num, primeiro=1, segundo=2, terceiro=3;
+    int num, first = 1, second = 2, third = 3;
     scanf("%d", &num);
     while (num != 0)
     {
-        printf("%d %d %d PUM\n", primeiro, segundo, terceiro);
-        primeiro += 4;
-        segundo += 4;
-        terceiro += 4;
+        printf("%d %d %d PUM\n", first, second, third);
+        first += 4;
+        second += 4;
+        third += 4;
         num -= 1;
     }
     return 0;

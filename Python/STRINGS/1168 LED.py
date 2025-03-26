@@ -1,23 +1,23 @@
-def contadorDeLeds(numeros):
+def countLeds(numbers):
     leds = 0
-    for numero in numeros:
-        if numero == '1':
+    for number in numbers:
+        if number == '1':
             leds += 2
-        elif numero == '2' or numero == '3' or numero == '5':
+        elif number == '2' or number == '3' or number == '5':
             leds += 5
-        elif numero == '4':
+        elif number == '4':
             leds += 4
-        elif numero == '7':
+        elif number == '7':
             leds += 3
-        elif numero == '8':
+        elif number == '8':
             leds += 7
         else:
             leds += 6
     return leds
 
 
-numeroDeTestes = int(input())
-for i in range(numeroDeTestes):
-    valor = str(input())
-    qtdDeLeds = contadorDeLeds(valor)
-    print('%.f leds' % qtdDeLeds)
+numTests = int(input())
+for i in range(numTests):
+    value = str(input())
+    numLeds = countLeds(value)
+    print('%.f leds' % numLeds)

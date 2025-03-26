@@ -1,77 +1,77 @@
-# SUBPROGRAMA
-def receberAssociacoes(numAssociacoes):
-    listaDeAssociacoes = list()
-    for _ in range(numAssociacoes):
-        linhaDeAssociacao = input().split()
-        listaDeAssociacoes.append(linhaDeAssociacao)
-    return listaDeAssociacoes
+# SUBPROGRAM
+def receiveAssociations(numAssociations):
+    associationList = list()
+    for _ in range(numAssociations):
+        associationLine = input().split()
+        associationList.append(associationLine)
+    return associationList
 
-def separarAssociacoes(listaDeAssociacoes, numAssociacoes):
-    senhaCod = list()
-    digitos = list()
-    linha = 0
-    for i in range(numAssociacoes):
-        senhaCod.append(listaDeAssociacoes[i][-6:])
-        digitos.append([int(listaDeAssociacoes[i][num]) for num in range(10)])
-    return digitos, senhaCod
+def separateAssociations(associationList, numAssociations):
+    codedPassword = list()
+    digits = list()
+    line = 0
+    for i in range(numAssociations):
+        codedPassword.append(associationList[i][-6:])
+        digits.append([int(associationList[i][num]) for num in range(10)])
+    return digits, codedPassword
 
-def separarDigitosEmPares(digitos):
-    digitosSeparados = list()
-    cont = 0
-    for lin in digitos:
-        linha = list()
-        for col in lin:
-            pares = list()
-            pares += [digitos[cont][:2]]
-            linha += pares
-            del digitos[cont][:2]
-        linha.append(digitos[cont])
-        digitosSeparados.append(linha)
-        cont += 1
-    digitos = digitosSeparados
-    return digitos
+def separateDigitsIntoPairs(digits):
+    separatedDigits = list()
+    count = 0
+    for row in digits:
+        line = list()
+        for col in row:
+            pairs = list()
+            pairs += [digits[count][:2]]
+            line += pairs
+            del digits[count][:2]
+        line.append(digits[count])
+        separatedDigits.append(line)
+        count += 1
+    digits = separatedDigits
+    return digits
 
-def posicoesDosCaracteres(senhaCod):
-    for lin in range(len(senhaCod)):
-        for col in range(len(senhaCod[lin])):
-            if senhaCod[lin][col] == 'A':
-                senhaCod[lin][col] = 0
-            elif senhaCod[lin][col] == 'B':
-                senhaCod[lin][col] = 1
-            elif senhaCod[lin][col] == 'C':
-                senhaCod[lin][col] = 2
-            elif senhaCod[lin][col] == 'D':
-                senhaCod[lin][col] = 3
+def characterPositions(codedPassword):
+    for row in range(len(codedPassword)):
+        for col in range(len(codedPassword[row])):
+            if codedPassword[row][col] == 'A':
+                codedPassword[row][col] = 0
+            elif codedPassword[row][col] == 'B':
+                codedPassword[row][col] = 1
+            elif codedPassword[row][col] == 'C':
+                codedPassword[row][col] = 2
+            elif codedPassword[row][col] == 'D':
+                codedPassword[row][col] = 3
             else:
-                senhaCod[lin][col] = 4
-    return senhaCod
+                codedPassword[row][col] = 4
+    return codedPassword
 
-def decodificarSenha(digitos, senhaCod, numTeste):
-    senhaDecodificada = list()
-    for col in range(len(senhaCod[0])):
-        interseccao = list()
-        for lin in range(len(digitos)):
-            if interseccao == []:
-                interseccao = digitos[lin][senhaCod[lin][col]]
+def decodePassword(digits, codedPassword, testNumber):
+    decodedPassword = list()
+    for col in range(len(codedPassword[0])):
+        intersection = list()
+        for row in range(len(digits)):
+            if intersection == []:
+                intersection = digits[row][codedPassword[row][col]]
             else:
-                interseccao = set(interseccao).intersection(digitos[lin][senhaCod[lin][col]])
-        senhaDecodificada.append(list(interseccao))
-    print('Teste %d' % numTeste)
-    for lin in range(len(senhaDecodificada)):
-        for col in range(len(senhaDecodificada[lin])):
-            print(senhaDecodificada[lin][col], end=' ')
+                intersection = set(intersection).intersection(digits[row][codedPassword[row][col]])
+        decodedPassword.append(list(intersection))
+    print('Teste %d' % testNumber)
+    for row in range(len(decodedPassword)):
+        for col in range(len(decodedPassword[row])):
+            print(decodedPassword[row][col], end=' ')
     print()
     print()
     return None
 
-# PROGRAMA PRINCIPAL
-numeroDeAssociacoes = int(input())
-numeroDeTeste = 1
-while numeroDeAssociacoes != 0:
-    associacoes = receberAssociacoes(numeroDeAssociacoes)
-    digitosDeAssociacoes, senhaCodificadas = separarAssociacoes(associacoes, numeroDeAssociacoes)
-    digitosDeAssociacoes = separarDigitosEmPares(digitosDeAssociacoes)
-    senhaCodificadas = posicoesDosCaracteres(senhaCodificadas)
-    decodificarSenha(digitosDeAssociacoes, senhaCodificadas, numeroDeTeste)
-    numeroDeAssociacoes = int(input())
-    numeroDeTeste += 1
+# MAIN PROGRAM
+numAssociations = int(input())
+testNumber = 1
+while numAssociations != 0:
+    associations = receiveAssociations(numAssociations)
+    associationDigits, codedPasswords = separateAssociations(associations, numAssociations)
+    associationDigits = separateDigitsIntoPairs(associationDigits)
+    codedPasswords = characterPositions(codedPasswords)
+    decodePassword(associationDigits, codedPasswords, testNumber)
+    numAssociations = int(input())
+    testNumber += 1

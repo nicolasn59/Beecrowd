@@ -1,20 +1,20 @@
-cont = 1
+count = 1
 while True:
-    lista = []
+    list = []
     n = int(input())
 
     if n == 0:
         break
 
-    j1 = input().strip()
-    j2 = input().strip()
+    p1 = input().strip()
+    p2 = input().strip()
 
     for i in range(n):
         a, b = map(int, input().split())
-        lista.append(j1 if (a + b) % 2 == 0 else j2)
+        list.append(p1 if (a + b) % 2 == 0 else p2)
 
-    print(f'Teste {cont}')
-    for nome in lista:
-        print(nome)
+    print(f'Teste {count}')
+    for name in list:
+        print(name)
     print()
-    cont += 1
+    count += 1

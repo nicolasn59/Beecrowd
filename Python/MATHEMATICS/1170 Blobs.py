@@ -1,19 +1,19 @@
-# SUBPROGRAMA
-def dias_com_comida():
-    dias = 0
-    quantidade_comida = float(input())
+# SUBPROGRAM
+def days_with_food():
+    days = 0
+    food_amount = float(input())
 
-    if quantidade_comida == 1:
-        return dias
+    if food_amount == 1:
+        return days
 
-    while quantidade_comida > 1:
-        quantidade_comida //= 2
-        dias += 1
-    return dias
+    while food_amount > 1:
+        food_amount //= 2
+        days += 1
+    return days
 
-#  PROGRAMA PRINCIPAL
+# MAIN PROGRAM
 
-numero_testes = int(input())
-for _ in range(numero_testes):
-    resultado = dias_com_comida()
-    print('%d %s' % (resultado, 'dias'))
+num_tests = int(input())
+for _ in range(num_tests):
+    result = days_with_food()
+    print('%d %s' % (result, 'dias'))

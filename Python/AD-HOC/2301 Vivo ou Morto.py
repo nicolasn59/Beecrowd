@@ -1,27 +1,27 @@
-# SUBPROGRAMA
-def vencedorDoJogo(participantes, rodadas):
-    ordemDosParticipantes = list(map(int, input().split()))
-    for _ in range(rodadas):
-        informacoes = list(map(int, input().split()))
-        for i in range(2, len(informacoes)):
-            if informacoes[i] != informacoes[1]:
-                informacoes[i] = 2
+# SUBPROGRAM
+def gameWinner(participants, rounds):
+    participantOrder = list(map(int, input().split()))
+    for _ in range(rounds):
+        info = list(map(int, input().split()))
+        for i in range(2, len(info)):
+            if info[i] != info[1]:
+                info[i] = 2
 
-        vitorioso = list()
-        for i in range(2, len(informacoes)):
-            if informacoes[i] != 2:
-                vitorioso.append(ordemDosParticipantes[i-2])
-        ordemDosParticipantes = vitorioso
+        winner = list()
+        for i in range(2, len(info)):
+            if info[i] != 2:
+                winner.append(participantOrder[i-2])
+        participantOrder = winner
 
-    msg = 'Teste %d\n%d' % (contadorDeRodadas, vitorioso[0])
+    msg = 'Teste %d\n%d' % (roundCounter, winner[0])
     return msg
 
-# PROGRAMA PRINCIPAL
-contadorDeRodadas = 1
-numeroDeParticipantes, numeroDeRodadas = map(int, input().split())
-while numeroDeParticipantes != 0 and numeroDeRodadas != 0:
-    vencedor = vencedorDoJogo(numeroDeParticipantes, numeroDeRodadas)
-    print(vencedor)
+# MAIN PROGRAM
+roundCounter = 1
+numParticipants, numRounds = map(int, input().split())
+while numParticipants != 0 and numRounds != 0:
+    winner = gameWinner(numParticipants, numRounds)
+    print(winner)
     print()
-    contadorDeRodadas += 1
-    numeroDeParticipantes, numeroDeRodadas = map(int, input().split())
+    roundCounter += 1
+    numParticipants, numRounds = map(int, input().split())

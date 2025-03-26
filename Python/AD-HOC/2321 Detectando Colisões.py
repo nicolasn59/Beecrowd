@@ -1,17 +1,17 @@
-# índices:
+# indices:
 # X0 = 0; X1 = 2
 # Y0 = 1; Y1 = 3
 
-cont = 0
-plano1 = list(map(int, input().split()))
-plano2 = list(map(int, input().split()))
+count = 0
+plane1 = list(map(int, input().split()))
+plane2 = list(map(int, input().split()))
 
-if (plano2[0] <= plano1[0] <= plano2[2]) or (plano2[0] <= plano1[2] <= plano2[2]) or (plano1[0] <= plano2[0] <= plano1[2]) or (plano1[0] <= plano2[2] <= plano1[2]): # X0
-    cont += 1
-if (plano2[1] <= plano1[1] <= plano2[3]) or (plano2[1] <= plano1[3] <= plano2[3]) or (plano1[1] <= plano2[1] <= plano1[3]) or (plano1[1] <= plano2[3] <= plano1[3]): # Y0
-    cont += 1
+if (plane2[0] <= plane1[0] <= plane2[2]) or (plane2[0] <= plane1[2] <= plane2[2]) or (plane1[0] <= plane2[0] <= plane1[2]) or (plane1[0] <= plane2[2] <= plane1[2]): # X0
+    count += 1
+if (plane2[1] <= plane1[1] <= plane2[3]) or (plane2[1] <= plane1[3] <= plane2[3]) or (plane1[1] <= plane2[1] <= plane1[3]) or (plane1[1] <= plane2[3] <= plane1[3]): # Y0
+    count += 1
 
-if cont >= 2:
+if count >= 2:
     print(1)
 else:
     print(0)

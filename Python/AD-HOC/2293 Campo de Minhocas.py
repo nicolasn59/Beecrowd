@@ -1,25 +1,25 @@
-# SUBPROGRAMA
-def somaDasMinhocas(campo, lins, cols):
-    somaLinhas = somaColunas = maiorSoma = 0
-    for linha in range(lins):
-        for coluna in range(cols):
-            somaLinhas += campo[linha][coluna]
-        if somaLinhas > maiorSoma:
-            maiorSoma = somaLinhas
-        somaLinhas = 0
-    for coluna in range(cols):
-        for linha in range(lins):
-            somaColunas += campo[linha][coluna]
-            if somaColunas > maiorSoma:
-                maiorSoma = somaColunas
-        somaColunas = 0
-    return maiorSoma
+# SUBPROGRAM
+def sumWorms(field, rows, cols):
+    rowSum = colSum = maxSum = 0
+    for row in range(rows):
+        for col in range(cols):
+            rowSum += field[row][col]
+        if rowSum > maxSum:
+            maxSum = rowSum
+        rowSum = 0
+    for col in range(cols):
+        for row in range(rows):
+            colSum += field[row][col]
+            if colSum > maxSum:
+                maxSum = colSum
+        colSum = 0
+    return maxSum
 
-# PROGRAMA PRINCIPAL
-campoDeMinhocas = []
-linhas, colunas = map(int, input().split())
-for i in range(linhas):
-    celulas = list(map(int, input().split()))
-    campoDeMinhocas.append(celulas)
-totalDeMinhocas = somaDasMinhocas(campoDeMinhocas, linhas, colunas)
-print(totalDeMinhocas)
+# MAIN PROGRAM
+wormField = []
+rows, cols = map(int, input().split())
+for i in range(rows):
+    cells = list(map(int, input().split()))
+    wormField.append(cells)
+totalWorms = sumWorms(wormField, rows, cols)
+print(totalWorms)

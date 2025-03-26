@@ -3,19 +3,19 @@
 
 int main()
 {
-    double valor, parcelas;
-    scanf("%lf", &valor);
-    scanf("%lf", &parcelas);
-    int cont=0;
-    for (int i=0; i < (int) parcelas; i++)
+    double value, installments;
+    scanf("%lf", &value);
+    scanf("%lf", &installments);
+    int count = 0;
+    for (int i = 0; i < (int) installments; i++)
     {
-        if (cont < (fmod(valor, parcelas)))
+        if (count < (fmod(value, installments)))
         {
-            printf("%0.lf\n", ceil(valor/parcelas));
-            cont += 1;
+            printf("%0.lf\n", ceil(value / installments));
+            count += 1;
         }
         else
-            printf("%0.lf\n", trunc(valor/parcelas));
+            printf("%0.lf\n", trunc(value / installments));
     }
     return 0;
 }

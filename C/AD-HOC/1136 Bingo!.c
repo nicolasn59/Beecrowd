@@ -1,51 +1,50 @@
 #include <stdio.h>
 #include <math.h>
 
-int verificarExistencia(int num, int len, int *numDaCombs)
+int checkExistence(int num, int len, int *numFromCombs)
 {
-    for (int i=0; i < len; i++)
-        if (numDaCombs[i] == num)
+    for (int i = 0; i < len; i++)
+        if (numFromCombs[i] == num)
         {
             return 1;
         }
     return 0;
 }
 
-
-int sorteio(int comb, int qtdBolas)
+int draw(int comb, int numBalls)
 {
-    int balls[qtdBolas];
-    for (int i=0; i < qtdBolas; i++)
+    int balls[numBalls];
+    for (int i = 0; i < numBalls; i++)
         scanf("%d", &balls[i]);
 
-    int len=1, num, numDaCombs[comb];
-    numDaCombs[0] = 0;
-    for (int i=0; i < qtdBolas; i++)
+    int len = 1, num, numFromCombs[comb];
+    numFromCombs[0] = 0;
+    for (int i = 0; i < numBalls; i++)
     {
-        for (int j=0; j < qtdBolas; j++)
+        for (int j = 0; j < numBalls; j++)
         {
             num = abs(balls[i] - balls[j]);
             if (num <= comb)
             {
-                if (verificarExistencia(num, len, numDaCombs) == 0) // SEM REPETIÇOES NO VETOR
+                if (checkExistence(num, len, numFromCombs) == 0) // WITHOUT REPETITIONS IN THE ARRAY
                 {
-                    numDaCombs[len] = num;
+                    numFromCombs[len] = num;
                     len += 1;
                 }
             }
-            if (len == (comb+1)) // ECONOMIZAR TEMPO
+            if (len == (comb + 1)) // SAVE TIME
             {
                 printf("Y\n");
                 return 0;
             }
         }
-        if (len == (comb+1)) // ECONOMIZAR TEMPO
+        if (len == (comb + 1)) // SAVE TIME
         {
             printf("Y\n");
             return 0;
         }
     }
-    if (len == (comb+1)) // ECONOMIZAR TEMPO
+    if (len == (comb + 1)) // SAVE TIME
     {
         printf("Y\n");
         return 0;
@@ -59,12 +58,12 @@ int sorteio(int comb, int qtdBolas)
 
 int main()
 {
-    int combinacao, quantidadeDeBolas;
-    scanf("%d %d", &combinacao, &quantidadeDeBolas);
-    while ((combinacao != 0) || (quantidadeDeBolas != 0))
+    int combination, numBalls;
+    scanf("%d %d", &combination, &numBalls);
+    while ((combination != 0) || (numBalls != 0))
     {
-        sorteio(combinacao, quantidadeDeBolas);
-        scanf("%d %d", &combinacao, &quantidadeDeBolas);
+        draw(combination, numBalls);
+        scanf("%d %d", &combination, &numBalls);
     }
 
     return 0;

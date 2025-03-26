@@ -1,12 +1,12 @@
-# SUBPROGRAMA
-# PROGRAMA PRINCIPAL
-palavra = input()
-apenasVogais = list()
-for letra in palavra:
-    if letra == 'a' or letra == 'e' or letra == 'i' or letra == 'o' or letra == 'u':
-        apenasVogais += [letra]
-risada = ''.join(apenasVogais)
-if risada == risada[::-1]:
+# SUBPROGRAM
+# MAIN PROGRAM
+word = input()
+onlyVowels = list()
+for letter in word:
+    if letter == 'a' or letter == 'e' or letter == 'i' or letter == 'o' or letter == 'u':
+        onlyVowels += [letter]
+laugh = ''.join(onlyVowels)
+if laugh == laugh[::-1]:
     print('S')
 else:
     print('N')

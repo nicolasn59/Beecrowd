@@ -1,28 +1,28 @@
-def calculo_esforco(altitude):
-    esforco = 0
+def calculate_effort(altitude):
+    effort = 0
     for i in range(1, len(altitude)):
-        desnivel = altitude[i] - altitude[i -1]
-        if desnivel > 0:
-            esforco += desnivel
-    return esforco
+        elevation = altitude[i] - altitude[i -1]
+        if elevation > 0:
+            effort += elevation
+    return effort
 
 
-def encontrar_trilha_facil(trilhas):
-    menor_esforco = float('inf')
-    melhor_trilha = -1
+def find_easy_trail(trails):
+    min_effort = float('inf')
+    best_trail = -1
 
-    for indice, altitude in enumerate(trilhas):
-        esforco = min(calculo_esforco(altitude), calculo_esforco(altitude[::-1]))
-        if esforco < menor_esforco:
-            menor_esforco = esforco
-            melhor_trilha = indice + 1
-    return melhor_trilha
+    for index, altitude in enumerate(trails):
+        effort = min(calculate_effort(altitude), calculate_effort(altitude[::-1]))
+        if effort < min_effort:
+            min_effort = effort
+            best_trail = index + 1
+    return best_trail
 
 
-num_testes = int(input())
-trilhas = []
-for _ in range(num_testes):
+num_tests = int(input())
+trails = []
+for _ in range(num_tests):
     altitudes = list(map(int, input().split()))[1:]
-    trilhas.append(altitudes)
+    trails.append(altitudes)
 
-print(encontrar_trilha_facil(trilhas))
+print(find_easy_trail(trails))

@@ -2,11 +2,11 @@
 
 int main()
 {
-    int tamanho;
-    scanf("%d", &tamanho);
-    if (tamanho % 2 == 0)
-        printf("%d casas brancas e %d casas pretas\n", (tamanho*(tamanho/2)), (tamanho*(tamanho/2)));
+    int size;
+    scanf("%d", &size);
+    if (size % 2 == 0)
+        printf("%d casas brancas e %d casas pretas\n", (size*(size/2)), (size*(size/2)));
     else
-        printf("%d casas brancas e %d casas pretas\n", (((tamanho*tamanho)/2)+1), ((tamanho*tamanho)/2));
+        printf("%d casas brancas e %d casas pretas\n", (((size*size)/2)+1), ((size*size)/2));
     return 0;
 }

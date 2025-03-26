@@ -1,13 +1,13 @@
-#include<stdio.h>
+#include <stdio.h>
 
 int main()
 {
-    int filhos, filhas;
-    scanf("%d %d", &filhos, &filhas);
-    while ((filhos != 0) && (filhas != 0))
+    int sons, daughters;
+    scanf("%d %d", &sons, &daughters);
+    while ((sons != 0) && (daughters != 0))
     {
-        printf("%d\n", (filhos + filhas));
-        scanf("%d %d", &filhos, &filhas);
+        printf("%d\n", (sons + daughters));
+        scanf("%d %d", &sons, &daughters);
     }
     return 0;
 }

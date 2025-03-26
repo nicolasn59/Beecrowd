@@ -1,40 +1,40 @@
 # SUBPROGRAM
-def partition(bolas, left, right):
-    pivot = bolas[right]
+def partition(balls, left, right):
+    pivot = balls[right]
     i = left - 1
     for j in range(left, right):
-        if bolas[j] <= pivot:
+        if balls[j] <= pivot:
             i = i+1
-            bolas[i], bolas[j] = bolas[j], bolas[i]
-    bolas[i+1], bolas[right] = bolas[right], bolas[i+1]
+            balls[i], balls[j] = balls[j], balls[i]
+    balls[i+1], balls[right] = balls[right], balls[i+1]
     return i+1
 
-def quicksort(bolas, left, right):
+def quicksort(balls, left, right):
     if left < right:
-        pivo = partition(bolas, left, right)
-        quicksort(bolas, left, pivo-1)
-        quicksort(bolas, pivo+1, right)
-    return bolas
+        pivot = partition(balls, left, right)
+        quicksort(balls, left, pivot-1)
+        quicksort(balls, pivot+1, right)
+    return balls
 
-def sorteio(comb, qtdBolas):
-    bolas = list(map(int, input().split()))
-    bolas = quicksort(bolas, 0, (len(bolas)-1))
-    numDeCombs = list()
-    numDeCombs += [0]
-    while len(bolas) != 0:
-        for j in range(0, len(bolas)):
-            num = abs(bolas[0] - bolas[j])
+def draw(comb, numBalls):
+    balls = list(map(int, input().split()))
+    balls = quicksort(balls, 0, (len(balls)-1))
+    numCombs = list()
+    numCombs += [0]
+    while len(balls) != 0:
+        for j in range(0, len(balls)):
+            num = abs(balls[0] - balls[j])
             if num <= comb:
-                if num not in numDeCombs:
-                    numDeCombs += [num]
-            if len(numDeCombs) == (comb+1):
+                if num not in numCombs:
+                    numCombs += [num]
+            if len(numCombs) == (comb+1):
                 print("Y")
                 return None
-        if len(numDeCombs) == (comb+1):
+        if len(numCombs) == (comb+1):
             print("Y")
             return None
-        bolas.pop(0)
-    if len(numDeCombs) == (comb+1):
+        balls.pop(0)
+    if len(numCombs) == (comb+1):
         print("Y")
         return None
     else:
@@ -42,7 +42,7 @@ def sorteio(comb, qtdBolas):
         return None
 
 # MAIN
-combinacao, quantidadeDeBolas = map(int, input().split())
-while combinacao != 0 or quantidadeDeBolas != 0:
-    sorteio(combinacao, quantidadeDeBolas)
-    combinacao, quantidadeDeBolas = map(int, input().split())
+combination, numBalls = map(int, input().split())
+while combination != 0 or numBalls != 0:
+    draw(combination, numBalls)
+    combination, numBalls = map(int, input().split())

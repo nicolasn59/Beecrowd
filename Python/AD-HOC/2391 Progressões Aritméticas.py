@@ -1,27 +1,27 @@
-# SUBPROGRAMA
-def quebrarSequencia(sequencia):
-    listaDePas = list()
+# SUBPROGRAM
+def breakSequence(sequence):
+    paList = list()
     pa = list()
-    diferenca = 0
-    for num in range(1, len(sequencia)):
+    difference = 0
+    for num in range(1, len(sequence)):
         if pa == []:
-            diferenca = sequencia[num - 1] - sequencia[num]
-            pa += [sequencia[num - 1]]
+            difference = sequence[num - 1] - sequence[num]
+            pa += [sequence[num - 1]]
         else:
-            if sequencia[num - 1] - sequencia[num] == diferenca:
-                pa += [sequencia[num - 1]]
+            if sequence[num - 1] - sequence[num] == difference:
+                pa += [sequence[num - 1]]
             else:
-                pa += [sequencia[num - 1]]
-                listaDePas += [pa]
+                pa += [sequence[num - 1]]
+                paList += [pa]
                 pa = list()
-                diferenca = 0
+                difference = 0
     if len(pa) == 1:
-        listaDePas += [pa]
-    print(len(listaDePas))
+        paList += [pa]
+    print(len(paList))
     return None
 
-# PROGRAMA PRINCIPAL
-numerosDeElementos = int(input())
-valoresDaSequencia = list(map(int, input().split()))
-valoresDaSequencia += [float('inf')]
-quebrarSequencia(valoresDaSequencia)
+# MAIN PROGRAM
+numElements = int(input())
+sequenceValues = list(map(int, input().split()))
+sequenceValues += [float('inf')]
+breakSequence(sequenceValues)

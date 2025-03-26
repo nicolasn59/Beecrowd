@@ -1,7 +1,7 @@
-# SUBPROGRAMA
-# PROGRAMA PRINCIPAL
-registros = list()
-numeroDeRegistros = int(input())
-for registro in range(numeroDeRegistros):
-    registros += [int(input())]
-print(len(list(set(registros))))
+# SUBPROGRAM
+# MAIN PROGRAM
+records = list()
+numRecords = int(input())
+for record in range(numRecords):
+    records += [int(input())]
+print(len(list(set(records))))

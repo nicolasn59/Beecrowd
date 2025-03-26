@@ -1,6 +1,6 @@
-distancia = 0
-intervalos = int(input())
-for _ in range(intervalos):
-    horas, velocidade_media = map(int, input().split())
-    distancia += horas * velocidade_media
-print(distancia)
+distance = 0
+intervals = int(input())
+for _ in range(intervals):
+    hours, averageSpeed = map(int, input().split())
+    distance += hours * averageSpeed
+print(distance)
